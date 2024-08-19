@@ -7,7 +7,6 @@ ARG WORKDIR=/template
 WORKDIR ${WORKDIR}
 
 COPY requirements.txt .
-COPY setup.py .
 COPY main.py .
 
 RUN pip install --no-cache-dir -r requirements.txt
