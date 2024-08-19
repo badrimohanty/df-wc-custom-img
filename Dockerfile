@@ -9,7 +9,6 @@ WORKDIR ${WORKDIR}
 COPY requirements.txt .
 COPY setup.py .
 COPY main.py .
-COPY my_package my_package
 
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install -e .
