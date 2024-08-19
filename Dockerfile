@@ -10,7 +10,7 @@ COPY requirements.txt .
 COPY main.py .
 
 RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install -e .
+#RUN pip install -e .
 
 # For more informaiton, see: https://cloud.google.com/dataflow/docs/guides/templates/configuring-flex-templates
 ENV FLEX_TEMPLATE_PYTHON_PY_FILE="${WORKDIR}/main.py"
