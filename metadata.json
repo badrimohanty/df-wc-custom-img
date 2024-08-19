@@ -9,14 +9,14 @@
                 "helpText": "GCS file pattern to read from (e.g., gs://your-bucket/input/*.txt)",
                 "isOptional": false,
                 "label": "Input File Pattern",
-                "name": "input_file_pattern",
+                "name": "input",
                 "paramType": "TEXT"
             },
             {
                 "helpText": "GCS file to write output to (e.g., gs://your-bucket/output/word_counts.txt)",
                 "isOptional": false,
                 "label": "Output File",
-                "name": "output_file",
+                "name": "output",
                 "paramType": "TEXT"
             },
             {
