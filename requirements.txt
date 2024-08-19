@@ -1,0 +1,10 @@
+apache-beam[gcp]
+sqlparse
+pymysql
+pyarrow
+nltk
+grpcio
+setuptools
+orjson
+cryptography
+js2py
