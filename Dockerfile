@@ -12,9 +12,9 @@ FROM gcr.io/distroless/python3
 COPY --from=build-env /opt/google/dataflow/python_template_launcher /opt/google/dataflow/python_template_launcher
 COPY --from=build-env /opt/apache/beam /opt/apache/beam
 
-COPY --from=python-base /usr/local/lib /usr/local/lib
-COPY --from=python-base /usr/local/gcloud /usr/local/gcloud
-COPY --from=python-base /usr/local/bin /usr/local/bin
+COPY --from=build-env /usr/local/lib /usr/local/lib
+COPY --from=build-env /usr/local/gcloud /usr/local/gcloud
+COPY --from=build-env /usr/local/bin /usr/local/bin
 
 # Location to store the pipeline artifacts.
 ARG WORKDIR=/template
