@@ -14,7 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # For more informaiton, see: https://cloud.google.com/dataflow/docs/guides/templates/configuring-flex-templates
 ENV FLEX_TEMPLATE_PYTHON_PY_FILE="${WORKDIR}/main.py"
-ENV LD_LIBRARY_PATH="${WORKDIR}/lib/oracle_client/"
+ENV LD_LIBRARY_PATH="/opt/lib/oracle_client/"
 RUN pip check
 RUN pip freeze
 ENTRYPOINT ["/opt/google/dataflow/python_template_launcher"]
