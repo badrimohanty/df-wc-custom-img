@@ -18,6 +18,7 @@
 import argparse
 import logging
 import re
+import os
 
 import apache_beam as beam
 from apache_beam.io import ReadFromText
@@ -65,6 +66,9 @@ def run(argv=None, save_main_session=True):
   # The pipeline will be run on exiting the with block.
   with beam.Pipeline(options=pipeline_options) as p:
 
+    env_var_value = p | 'Create' >> beam.Create([os.environ.get('LD_LIBRARY_PATH', 'default_value')])
+    env_var_value | 'Print' >> beam.Map(print)
+    
     # Read the text file[pattern] into a PCollection.
     lines = p | 'Read' >> ReadFromText(known_args.input)
 
