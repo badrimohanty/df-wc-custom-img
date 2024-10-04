@@ -1,6 +1,6 @@
 {
     "defaultEnvironment": {},
-    "image": "us-east4-docker.pkg.dev/bnm-experimental/bnm-flex-img/third-img:latest",
+    "image": "us-east4-docker.pkg.dev/bnm-experimental/bnm-flex-img/template-launcher-img:latest",
     "metadata": {
         "description": "Word Count using Dataflow Flex Template",
         "name": "Word Count",
