@@ -63,11 +63,22 @@ def run(argv=None, save_main_session=True):
   pipeline_options = PipelineOptions(pipeline_args)
   pipeline_options.view_as(SetupOptions).save_main_session = save_main_session
 
+  class LogResults(beam.DoFn):
+    """Just log the results"""
+    def process(self, element):
+      logging.info("LD_LIBRARY_PATH: %s", element)
+      yield element
+  
   # The pipeline will be run on exiting the with block.
   with beam.Pipeline(options=pipeline_options) as p:
 
-    env_var_value = p | 'Create' >> beam.Create([os.environ.get('LD_LIBRARY_PATH', 'default_value')])
-    env_var_value | 'Print' >> beam.Map(print)
+    #env_var_value = p | 'Create' >> beam.Create([os.environ.get('LD_LIBRARY_PATH', 'default_value')])
+    #env_var_value | 'Print' >> beam.Map(print)
+
+    (
+        p | 'Create' >> beam.Create([os.environ.get('LD_LIBRARY_PATH', 'default_value')])
+        | beam.ParDo(LogResults())
+    )
     
     # Read the text file[pattern] into a PCollection.
     lines = p | 'Read' >> ReadFromText(known_args.input)
